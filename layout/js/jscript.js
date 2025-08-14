@@ -29,11 +29,10 @@ document.addEventListener("DOMContentLoaded", function() {
   selectFields()
 
   // #custom
-
-  typingMobile_HomePage()
-
-
   forms()
+  offers()
+
+  maps();
 
 });
 
@@ -692,5 +691,66 @@ function selectFields() {
     $('[init-select]').each(function(){
       $(this).niceSelect();
     })
+  }
+}
+
+function offers() {
+  if (!document.querySelector('[open-modal="offer-modal"]')) return;
+
+  document.body.addEventListener('click', (e) => {
+    const target = e.target.closest('[open-modal="offer-modal"]');
+    if (!target) return;
+
+    const img   = target.getAttribute('offer-img');
+    const title = target.querySelector('[offer-title]').innerHTML;
+    const desc  = target.querySelector('[offer-desc]').innerHTML;
+
+    document.querySelector('[modal-name="offer-modal"] [offer-modal-target-img]').setAttribute('src', img);
+    document.querySelector('[modal-name="offer-modal"] [offer-modal-target-title]').innerHTML = title;
+    document.querySelector('[modal-name="offer-modal"] [offer-modal-target-desc]').innerHTML = desc;
+  });
+
+}
+
+function maps() {
+  if (document.querySelector('#map')) {
+    const map = L.map('map').setView([31.9539, 35.9106], 13);
+
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      
+    }).addTo(map);
+
+
+    
+     // Custom branch icon (use your own image if needed)
+    const branchIcon = L.icon({
+      iconUrl: '/layout/image/pin.svg',
+      iconSize: [66, 88],
+      iconAnchor: [16, 32],
+    });
+
+    // Example branches (lat, lng)
+    const branches = [
+      [31.9539, 35.9106],
+      [31.9635, 35.9182],
+      [31.9453, 35.9284]
+    ];
+
+    branches.forEach(coords => {
+      L.marker(coords, { icon: branchIcon }).addTo(map);
+    });
+
+    // Listen for clicks on any element with map-item-coords
+    document.body.addEventListener('click', function(e) {
+      const target = e.target.closest('[map-item-coords]');
+      if (!target) return;
+
+      const coords = target.getAttribute('map-item-coords').split(',').map(Number);
+      if (coords.length === 2) {
+        map.setView(coords, 15, { animate: true }); // Zoom in when clicked
+      }
+    });
+
   }
 }
