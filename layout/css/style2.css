@@ -1,0 +1,212 @@
+.btn {
+    border: 0;
+}
+.premium-modal .modal-body {
+    opacity: 0;
+}
+.premium-modal.active .modal-body {
+    opacity: 1;
+}
+.cookies-modal .a1 a {
+    text-decoration: underline;
+    color: #0D776E;
+}
+.cookies-modal {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    z-index: 5;
+    width: 519px;
+    box-shadow: 1px 1px 8px 2px #00000021;
+}
+.lang-ar .cookies-modal {
+    left: auto;
+    right: 24px;
+}
+.right-header-btn {
+    transition: .4s;
+    border-radius: 16px;
+}
+.search-btn-header:hover {
+    background: rgba(137, 142, 148, 0.30);
+}
+.search-modal .cls-btn {
+    width: 48px;
+    height: 48px;
+}
+.search-modal .tt1 {
+    font-size: 64px;
+}
+.search-modal .form-box {
+    border: 1px solid #D0D2D4;
+    border-radius: 53px;
+    transition: .4s;
+}
+.search-modal .form-box .inp {
+    border: 0;
+    transition: .4s;
+    height: 100%;
+    width: 100%;
+    padding: 25px 40px;
+    color: #0E161F;
+    font-size: 24px;
+    font-weight: 400;
+    background-color: transparent;
+}
+.search-modal .form-box:hover .inp:placeholder-shown{
+    background: #F5F5F5;
+}
+.search-modal .form-box .inp::placeholder {
+    color: #898E94;
+}
+.search-modal .modal-body {
+    overflow-y: auto;
+    transform: translateY(100%);
+}
+.search-modal.active .modal-body {
+    transform: translateY(0);
+}
+.search-modal .box {
+    max-width: 804px;
+}
+.search-modal .cccz1 {
+    color: #71787F;
+}
+.search-modal .lsting-searrch-modal-itm .bda {
+    background-color: #E7E8EA;
+    height: 1px;
+    width: calc(100% - 48px);
+}
+.search-modal .lsting-searrch-modal-itm:last-of-type .bda {
+    display: none;
+}
+.search-modal .lsting-searrch-modal-itm:hover .itm-cn {
+    background-color: #F5F5F5;
+}
+.close-premium-modal-btn {
+    width: 48px;
+    height: 48px;
+    top: 24px;
+    right: 24px;
+    position: absolute;
+    background-color: transparent;
+    border: 0;
+    z-index: 1;
+}
+.premium-modal .box .left {
+    line-height: 1.2;
+    font-size: 20px;
+    font-weight: 300;
+}
+.premium-modal .box .left h2{
+    font-size: 40px;
+    font-weight: bold;
+}
+.premium-modal .box .left strong,
+.premium-modal .box .left b {
+    font-weight: bold;
+}
+.we-belive-section {
+    --belive-transition:1s;
+}
+.we-belive-section .my-container {
+    width: calc(100% - 32px);
+    margin-inline: auto;
+}
+.we-belive-section .cc {
+    text-shadow: 0 0 15.36px rgba(0, 0, 0, 0.25);
+}
+.we-belive-section .c1 {
+    font-size: 76px;
+    font-weight: 700;
+    line-height: 100%;
+}
+.we-belive-section .c2 {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 100%;
+}
+.we-belive-section .c3 {
+    font-size: 19px;
+    line-height: 120%;
+}
+.we-belive-section .box {
+    height: 918px;
+    /* height: 80vh; */
+}
+.we-belive-section .box .inside {
+    max-width: 700px;
+    transition: var(--belive-transition);
+    padding-inline-start: 120px;
+}
+.we-belive-section .box .inside-wrapper {
+    transition: var(--belive-transition);
+    width: 100%;
+    position: absolute;
+    left: 40%;
+    top: 0;
+    opacity: 0;
+}
+.we-belive-section .ga {
+    transition: var(--belive-transition);
+}
+.we-belive-section .bg {
+    position: absolute;
+    border-radius: 32px;
+    width: 130px;
+    height: 100%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transition: var(--belive-transition);
+}
+.we-belive-section .bg .ovv {
+    background-color: #131E291A;
+    mix-blend-mode: multiply;
+}
+.we-belive-section.active .bg {
+    width: 100%;
+}
+.we-belive-section.active .inside-wrapper {
+    left: 0;
+    opacity: 1;
+}
+.we-belive-section.active .bg .imm {
+    scale: 1.2;
+}
+.section-title-96 {
+    font-size: 96px;
+    line-height: 1;
+    font-weight: bold
+}
+.about-banking-section {
+    padding-block: 170px;
+}
+.about-banking-section .img {
+    aspect-ratio: 1 / 1.03;
+}
+.why-diffrent-section .box {
+    max-width: 830px;
+}
+.here-section {
+    padding-block: 150px;
+}
+.here-section .tt {
+    font-size: 56px;
+}
+.float-to-up-btn {
+    box-shadow: 0 0 9.4px 0 rgba(0, 0, 0, 0.10);
+    position: fixed;
+    z-index: 2;
+    width: 60px;
+    height: 60px;
+    bottom: 43px;
+    right: var(--container-offset-normal);
+}
+.lang-ar .float-to-up-btn {
+    right: auto;
+    left: var(--container-offset-normal);
+}
+.footer .box {
+    padding-inline-end: 80px;
+}
