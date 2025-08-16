@@ -32,6 +32,8 @@ document.addEventListener("DOMContentLoaded", function() {
   forms()
   offers()
 
+  // aboutPage__weBeliveSection()
+
   maps();
   // aboutPageBoxes();
 
@@ -613,12 +615,11 @@ function initMobileNumber() {
 
 function stickyHeader() {
   if (document.querySelector('.header')) {
-    const headerEl = document.querySelector('header.header');
-    const headerHeight = headerEl.offsetHeight;
+    const triggerPoint = window.innerHeight * 0.7; // 70% of screen height
     function handleScroll() {
       const scrolled = window.scrollY;
-    
-      if (scrolled > headerHeight) {
+
+      if (scrolled > triggerPoint) {
         document.body.classList.add('scroll');
       } else {
         document.body.classList.remove('scroll');
@@ -627,6 +628,15 @@ function stickyHeader() {
     handleScroll()
     window.addEventListener('scroll', handleScroll);
   }
+  if (document.querySelector('[float-to-up-btn]')) {
+    document.querySelectorAll('[float-to-up-btn]').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+  }
+
 }
 
 
@@ -780,25 +790,74 @@ function aboutPageBoxes() {
   if (document.querySelector('.about-effect-section')) {
     const items = document.querySelectorAll('.item-wrapper');
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.intersectionRatio >= 0.8) {
-        entry.target.classList.add('active');
-      } else {
-        entry.target.classList.remove('active');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.intersectionRatio >= 0.8) {
+          entry.target.classList.add('active');
+        } else {
+          entry.target.classList.remove('active');
+        }
+      });
+    }, { threshold: buildThreshold(0.8) });
+
+    items.forEach(item => observer.observe(item));
+
+    function buildThreshold(min) {
+      // Creates thresholds from 0 to 1 so the observer fires smoothly
+      const thresholds = [];
+      for (let i = 0; i <= 1.0; i += 0.01) {
+        thresholds.push(i);
       }
-    });
-  }, { threshold: buildThreshold(0.8) });
-
-  items.forEach(item => observer.observe(item));
-
-  function buildThreshold(min) {
-    // Creates thresholds from 0 to 1 so the observer fires smoothly
-    const thresholds = [];
-    for (let i = 0; i <= 1.0; i += 0.01) {
-      thresholds.push(i);
+      return thresholds.filter(v => v >= min);
     }
-    return thresholds.filter(v => v >= min);
   }
+}
+function aboutPage__weBeliveSection() {
+  const section = document.querySelector('.we-belive-section');
+  const headerHeight = parseInt(getComputedStyle(document.documentElement)
+                                .getPropertyValue('--header-height')) || 0;
+  if (section) {
+    let lastScroll = window.scrollY;
+
+    window.addEventListener('scroll', () => {
+      const rect = section.getBoundingClientRect();
+      const sectionTop = rect.top + window.scrollY;
+      const sectionHeight = rect.height;
+      const scrollY = window.scrollY;
+      const scrollingDown = scrollY > lastScroll;
+
+      // helper to calculate visible height
+      const visibleHeight = Math.min(
+        sectionHeight,
+        Math.max(0, Math.min(window.innerHeight, rect.bottom) - Math.max(0, rect.top))
+      );
+
+      // Always remove .active if viewport is completely below the section
+      if (scrollY >= sectionTop + sectionHeight) {
+        section.classList.remove('active');
+      }
+      // Scrolling down
+      else if (scrollingDown) {
+        // Add when reaching top - headerHeight
+        if (scrollY >= sectionTop - headerHeight) {
+          section.classList.add('active');
+        }
+        // If active and less than 30% visible (scrolled past 70%) → remove
+        if (section.classList.contains('active') && visibleHeight <= sectionHeight * 0.3) {
+          section.classList.remove('active');
+        }
+      }
+      // Scrolling up → add .active if 40% of section is visible
+      else {
+        if (visibleHeight >= sectionHeight * 0.4) {
+          section.classList.add('active');
+        } else {
+          section.classList.remove('active');
+        }
+      }
+
+      lastScroll = scrollY;
+    });
+
   } // ##if
 }

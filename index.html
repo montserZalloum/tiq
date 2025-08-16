@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="layout/css/common.css" />
     <!-- page styles -->
     <link rel="stylesheet" href="layout/css/style.css" />
+    <link rel="stylesheet" href="layout/css/style2.css" />
     
   </head>
   <body class="lang-en home-page">
@@ -189,8 +190,81 @@
           <!-- ##box -->
         </div>
       </div>
+
+      <!-- #search modal -->
+      <aside class="modal search-modal full-page-modal" modal-name="search-modal">
+        <div class="modal-body bg-white relative z-1 pt-100 h-100 pb-50">
+          <div class="ccq1 d-flex justify-end container">
+            <button class="cls-btn bg-transparent border-0 flex-all" close-modal="search-modal">
+              <img class="cs" src="layout/image/close.svg" alt="" width="24" height="24" />
+            </button>
+          </div>
+          <!-- #box -->
+          <div class="container">
+            <p class="center tt1 secondary-color f-400 pb-50">What are you looking for?</p>
+            <div class="box mx-auto">
+              <form>
+                <!-- #form box -->
+                <div class="form-box overflow-hidden">
+                  <input type="text" class="inp" placeholder="Search" />
+                </div>
+                <!-- ##form box -->
+              </form>
+
+              <!-- #search results -->
+              <div class="search-modal-results-wrap pt-20">
+                <!-- #no res -->
+                <div class="search-modal-no-res pt-70">
+                  <div class="center zc123 font-24">
+                    <p class="ia">Oops!</p>
+                    <p class="ia2 f-300 ">We found 0 results for your search <br > "<span>Cafs</span>"</p>
+                    <p class="ia3 f-300 pt-10">Try searching for treat</p>
+                  </div>
+                </div>
+                <!-- ##no res -->
+                <!-- #with -->
+                <div class="has-res">
+                  <p class="cccz1 font-24 capitalize pb-15">Search results</p>
+                  <div class="listng d-flex flex-column gap-10">
+                    <!-- #item -->
+                    <a href="#" title="" class="lsting-searrch-modal-itm secondary-color d-flex flex-column gap-5">
+                      <div class="itm-cn d-flex flex-column gap-10 radius-16 p-24 trans">
+                        <p class="zzcf font-24 capitalize">Debit Card</p>
+                        <p class="zzcf2 capitalize">Cards</p>
+                      </div>
+                      <span class="bda w-100 mx-auto"></span>
+                    </a>
+                    <!-- ##item -->
+                    <!-- #item -->
+                    <a href="#" title="" class="lsting-searrch-modal-itm secondary-color d-flex flex-column gap-5">
+                      <div class="itm-cn d-flex flex-column gap-10 radius-16 p-24 trans">
+                        <p class="zzcf font-24 capitalize">Debit Card</p>
+                        <p class="zzcf2 capitalize">Cards</p>
+                      </div>
+                      <span class="bda w-100 mx-auto"></span>
+                    </a>
+                    <!-- ##item -->
+                  </div>
+                </div>
+                <!-- ##with -->
+
+                
+
+              </div>
+              <!-- ##search results -->
+
+            </div>
+            <!-- ##box -->
+          </div>
+        </div>
+      </aside>
+      <!-- ##search modal -->
+
     </header>
     <!-- end header -->
+
+    
+    
 
 
     <!-- #landing -->
@@ -251,7 +325,7 @@
     </section>
     <!-- ##landing -->
 
-
+    
     <!-- #todo -->
     <!-- ##todo -->
 
@@ -537,6 +611,70 @@ Rahim AL Waked Street</p></li>
       </div>
     </footer>
     <!-- ##footer -->
+
+    <!-- #premium modal -->
+    <aside class="modal premium-modal modal-center" modal-name="premium-modal">
+      <span class="modal-overlay" close-modal="premium-modal"></span>
+
+      <div class="modal-body container radius-40 section-padding section-padding-x bg-white z-1 relative">
+        <button class="close-premium-modal-btn flex-all" close-modal="premium-modal">
+          <img class="imm" src="layout/image/close.svg" alt="" width="24" height="24" />
+        </button>
+        <!-- #box -->
+        <div class="box d-flex align-center gap-section-padding">
+          
+          <!-- #left -->
+          <div class="left-wrap flex-1 w-100-p">
+            <div class="left flex-1 w-100-p body-color">
+              <h2>Go Premium <br>
+  Banking Made Smarter.</h2><br>
+                <div>Get full access to exclusive banking features for just $65.49/month—for you and up to 5 users. Plus, enjoy your first 30 days free!
+  With Tiq Pro, you’ll get:
+  <br><br>
+  <strong>Unlimited Access</strong> – Explore our complete suite of premium banking tools and resources.
+  <br><br>
+  <strong>Smart Features</strong> – Enjoy Smart Budgeting, Instant Loan Approval, and a Financial Planner to stay ahead.
+  <br><br>
+  <strong>Seamless Collaboration</strong> – Use comments, mentions, tasks, and shared templates to work smarter as a team.
+  <br><br>
+  <strong>Enhanced Security</strong> – Keep your finances safe with advanced security features.</div>
+            </div>
+            <div class="accz d-flex pt-30">
+              <a href="#" title="" class="btn">Get Tiq Pro</a>
+            </div>
+          </div>
+          <!-- ##left -->
+
+          <!-- #right -->
+          <div class="right d-flex flex-1 w-100-p">
+            <img class="object-fit img" src="layout/image/landing.jpg" alt="" width="100%" height="auto" />
+          </div>
+          <!-- ##right -->
+        </div>
+        <!-- ##box -->
+      </div>
+
+    </aside>
+    <!-- ##premium modal -->
+
+    <!-- #cookies -->
+    <aside hidden class="cookies-modal radius-24 overflow-hidden">
+      <div class="box d-flex flex-column gap-25 p-32 bg-white">
+        <figure class="fig d-flex">
+          <img src="layout/image/icon-green2.svg" width="60" height="42" alt="" />
+        </figure>
+        <p class="a1 f-300 font-20">Our website uses cookies to analyze how the site is used and to ensure your experience is consistent between visits. <a href="#" title="" class="underline">Learn more</a></p>
+        <div class="actions d-flex justify-end gap-25">
+          <button class="btn btn-gray" remove-cookies>Reject</button>
+          <button class="btn" accept-cookies>Accept All Cookies</button>
+        </div>
+      </div>
+    </aside>
+    <!-- ##cookies -->
+
+    <button float-to-up-btn class="float-to-up-btn bg-white rounded border-0 flex-all">
+      <img src="layout/image/arrow-up.svg" alt="" width="24" height="24" />
+    </button>
 
 
     <!-- <script src="layout/js/jquery.js"></script> -->
