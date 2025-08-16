@@ -5,15 +5,19 @@
     padding-block: 16px;
     z-index: 2;
 }
-.home-page .header {
+.home-page .header, .fixed-header .header {
     position: fixed;
     left: 0;
 }
 .header .right-header-btn img {
     filter: invert(1);
 }
-.home-page .header .right-header-btn img {
+.home-page .header .right-header-btn img,
+.fixed-header .header .right-header-btn img {
     filter: invert(0);
+}
+.fixed-header .header .main-menu-box li a {
+    color: #fff;
 }
 .btn {
     display: flex;
@@ -313,7 +317,8 @@ select.form-control {
     font-weight: 600;
     margin-bottom: 15px;
 }
-.fees-page-section .feed-cntnt table{
+.fees-page-section .feed-cntnt table,
+.table-inside table{
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
@@ -322,7 +327,9 @@ select.form-control {
     overflow: hidden;
 }
 .fees-page-section .feed-cntnt table thead th,
-.fees-page-section .feed-cntnt table tbody td {
+.fees-page-section .feed-cntnt table tbody td,
+.table-inside table thead th,
+.table-inside table tbody td {
     background-color: #F5F5F5;
     border-bottom: 1px solid #D0D2D4;
     padding: 20px 30px;
@@ -331,15 +338,19 @@ select.form-control {
     border-inline-end: 1px solid #D0D2D4;
 }
 .fees-page-section .feed-cntnt table thead  th:last-of-type,
-.fees-page-section .feed-cntnt table tbody  td:last-of-type {
+.fees-page-section .feed-cntnt table tbody  td:last-of-type,
+.table-inside table thead  th:last-of-type,
+.table-inside table tbody  td:last-of-type {
     border-inline-end: 0;
 }
-.fees-page-section .feed-cntnt table tbody  td {
+.fees-page-section .feed-cntnt table tbody  td,
+.table-inside table tbody  td {
     background-color: transparent;
     text-align: center;
     font-weight: 400;
 }
-.fees-page-section .feed-cntnt table tbody tr:last-of-type td {
+.fees-page-section .feed-cntnt table tbody tr:last-of-type td,
+.table-inside table tbody tr:last-of-type td {
     border-bottom: 0;
 }
 .faq-filters > * {
@@ -610,4 +621,135 @@ a.sitem-map-txt.no-line {
 }
 [map-item-coords] {
     cursor: pointer;
+}
+.help-center-section .left-help-item {
+    transition: .4s;
+    color: #0E161F;
+    border-radius: 12px;
+    font-size: 18px;
+    padding: 16px;
+}
+.help-center-section .left-help-item.active,
+.help-center-section .left-help-item:hover {
+    background-color: #F5F5F5;
+}
+.help-center-section .left {
+    width: 212px;
+}
+.help-center-section .right-crumb a:last-of-type {
+    font-weight: bold;
+}
+.help-center-section .items-listing {
+    column-count: 2;
+    gap: 25px;
+}
+.help-center-section .items-listing .itm {
+    margin-bottom: 25px;
+}
+.post-content-custom {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+.post-content-custom h2,
+.post-content-custom h3{
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.post-content-custom h3 {
+    font-size: 24px;
+}
+.about-landing-section .tt {
+    font-size: 128px;
+    font-weight: 800;
+}
+.about-landing-section .bottom-box {
+    position: absolute;
+    bottom: 55px;
+    width: 100%;
+    left: 0;
+}
+.txt-about-slider ,
+.txt-about-slide {
+    height: 28px;
+}
+.txt-about-slide {
+    color: #00DEBE;
+    /* width: 100px; */
+    white-space: nowrap;
+}
+.icn-about-img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.lang-ar .about-landing-section .icn-about-img {
+    left: 0;
+    right: auto;
+}
+.about-effect-section {
+    gap: 140px;
+    padding-top: 140px;
+}
+.about-effect-section .item-wrapper {
+    height: calc(100svh - var(--header-height) - 20px);
+    padding-bottom: 20px;
+    margin-inline: auto;
+}
+.about-effect-section .item .box{
+    background-color: #00B09A;
+    border-radius: 100px;
+}
+.about-effect-section .item-wrapper.red .box {
+    background-color: #C60651;
+}
+.about-effect-section .item-wrapper.green-with-black .box {
+    background-color: #00DEBE;
+}
+.about-effect-section .item-wrapper.green-with-black .ga {
+    color: #131E29;
+}
+.about-effect-section .item-wrapper.black .box {
+    background-color: #131E29;
+}
+.about-effect-section .item-wrapper.black .box .ga {
+    color: #fff;
+}
+.about-effect-section {
+    --about-effect-transition: .6s;
+}
+.about-effect-section .item .ga {
+    color: #fff;
+    transition: var(--about-effect-transition);
+}
+.about-effect-section .item .tt {
+    font-size: 200px;
+    font-weight: 900;
+    letter-spacing: -2px;
+    margin-bottom: 40px;
+}
+.about-effect-section .item .dd {
+    text-align: right;
+    font-size: 24px;
+}
+.about-effect-section .item {
+    width: 740px;
+    height: 224px;
+    transition: var(--about-effect-transition);
+}
+.about-effect-section .item .box {
+    border-radius: 32px;
+}
+.about-effect-section .item .ga {
+    opacity: 0;
+    scale: 0;
+}
+.about-effect-section .item-wrapper.active .ga {
+    opacity: 1;
+    scale: 1;
+}
+.about-effect-section .item-wrapper.active .item {
+    width: 100%;
+    height: 100%;
 }

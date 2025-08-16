@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
   offers()
 
   maps();
+  // aboutPageBoxes();
 
 });
 
@@ -257,6 +258,26 @@ function sliders() {
       });
     })
   }
+
+  if (0 && document.querySelector('.txt-about-slider')) {
+    
+    var swiper = new Swiper(".txt-about-slider", {
+      direction: "vertical",
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop:true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      effect: "bounce", // Use the bounce effect
+  bounceEffect: {
+    // Customize the bounce effect
+    slideShadows: true,
+    // Other options as needed
+  },
+      });
+    }
 }
 
 function openModal(modal) {
@@ -753,4 +774,31 @@ function maps() {
     });
 
   }
+}
+
+function aboutPageBoxes() {
+  if (document.querySelector('.about-effect-section')) {
+    const items = document.querySelectorAll('.item-wrapper');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.intersectionRatio >= 0.8) {
+        entry.target.classList.add('active');
+      } else {
+        entry.target.classList.remove('active');
+      }
+    });
+  }, { threshold: buildThreshold(0.8) });
+
+  items.forEach(item => observer.observe(item));
+
+  function buildThreshold(min) {
+    // Creates thresholds from 0 to 1 so the observer fires smoothly
+    const thresholds = [];
+    for (let i = 0; i <= 1.0; i += 0.01) {
+      thresholds.push(i);
+    }
+    return thresholds.filter(v => v >= min);
+  }
+  } // ##if
 }
